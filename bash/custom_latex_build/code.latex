@@ -1,0 +1,36 @@
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstdefinelanguage{bash} {
+    morekeywords={man, cd, ls, cat, tac, head, tail, cp, mv, grep,
+    touch, mkdir, rm, >, >>, diff, more, less, chmod, cal, echo,
+    sort, uniq},
+    morecomment=[l]{\#}
+}
+
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    keywordstyle=\color[rgb]{0.13,0.29,0.53}\bfseries,
+    stringstyle=\color[rgb]{0.31,0.60,0.02},
+    commentstyle=\color[HTML]{61A1B0}\itshape,
+	%%identifierstyle=\color[HTML]{40A710},
+    numberstyle=\footnotesize,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    escapeinside={\%*}{*)},
+    basewidth=0.5em,
+	frame=single,
+	rulecolor=\color[HTML]{DDDDDD},
+	framesep=10pt,
+	stepnumber=1,
+    numbersep=15pt,
+	xleftmargin=20pt,
+	xrightmargin=15pt
+}
