@@ -314,7 +314,7 @@ chmod 000 build_script.sh
 
 | User   |Meaning|   | Operators |      |
 |:------:|:----:|:--:| :-------: |------|
-| u      | user |    |  +        | Add  |
+| u      | owner|    |  +        | Add  |
 | g      |group |    |  -        | Remove |
 | o      |other |    |  =        | Only specified permission should be applied|
 | a      | all  |    |           |      |
@@ -323,9 +323,9 @@ chmod 000 build_script.sh
 chmod [user][operator] [file]
 
 # Examples:
-chmod a+x   # Added execution rights to all
-chmod g-w   # Remove write permissions from group
-chmod u-x   # Remove execute permissions from owner
+chmod a+x build_script.sh  # Added execution rights to all
+chmod g-w build_script.sh  # Remove write permissions from group
+chmod u-x build_script.sh  # Remove execute permissions from owner
 ```
 
 **Use what works for you**
