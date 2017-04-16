@@ -221,9 +221,9 @@ ab??def       # File: ab + "any 2 characters" + def
 Print lines matching a pattern (filter)
 
 ```bash
-grep [text]
+grep [text]    # display lines containing [text]
 grep -v [text] # display lines not containing [text]
-egrep [text + wildcards]
+grep -E '[exp1]|[exp2]|[exp3]' # display lines containing exp1 or exp2 or exp3
 ```
 
 \pagebreak
@@ -347,6 +347,34 @@ scp -r [directory] [username]@[server_ip]:[/path/to/remote/folder]
 ```
 
 
+# Advanced commands
+
+## Awk
+Awk is a programming language. Nowadays it's mostly used for picking a single field out of an input stream.
+For complicated string manipulations use Python or Perl.
+
+```bash
+# usage:
+[cmd] | awk [awk_cmd]  # or
+awk [awk_cmd] [file]
+
+awk '{print $1}'          # print only the first field of each line from file
+awk '/[expr]/ {print $1}'      # print first field of lines containing [expr]
+awk '/^[expr]/ {print $1}'     # match beggining of the field with expr
+ps aux | awk 'length($0) > 40' # displays lines from ps aux longer than 40 chars
+aux -F: '{print $1}' /etc/passwd | sort # display sorted list of login user names
+
+-F: # change field separator to : (default is space)
+```
+
+## Sed
+Takes an input stream, change it according to the expression and prints results to standard input
+```bash
+sed 's/[exp]/[text]'   # substitute expression with text
+sed 's/:/%/g'          # substitute [:] with [%] globally
+sed 2,4d               # delete 2nd to 4th line
+sed '/exp/d'           # deletes line that matches regular expression exp
+```
 
 \pagebreak
 
@@ -357,7 +385,7 @@ scp -r [directory] [username]@[server_ip]:[/path/to/remote/folder]
 
 ## Command subsitution
 
-Use bash commands in bash commands
+Use bash commands in bash scripts
 
 ```bash
 $(command)
@@ -399,6 +427,8 @@ echo '$(hostname) computer uptime: $(uptime)'
 
 
 ## Simple shell script
+Shell scripts are meant to be small. When complicated string manipulation is needed use
+scripting language such as Python or Perl
 
 ```bash
 #!/bin/bash

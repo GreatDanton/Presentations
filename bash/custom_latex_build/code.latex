@@ -4,7 +4,7 @@
 \lstdefinelanguage{bash} {
     morekeywords={man, cd, ls, cat, tac, head, tail, cp, mv, grep,
     touch, mkdir, rm, >, >>, diff, more, less, chmod, cal, echo,
-    sort, uniq},
+    sort, uniq, scp, awk, sed, python, python3, tar, gzip, gunzip},
     morecomment=[l]{\#}
 }
 
