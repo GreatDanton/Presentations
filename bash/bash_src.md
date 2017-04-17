@@ -11,7 +11,7 @@ subparagraph: true
 
 
 
-## man
+## Man
 
 Manual pages - built in documentation
 
@@ -24,7 +24,7 @@ man ls
 man firefox
 ```
 
-## ls
+## Ls
 
 List directory contents
 ```bash
@@ -68,7 +68,7 @@ that should be used to execute the script
 
 
 
-## cd
+## Cd
 Change directory
 
 ```bash
@@ -96,7 +96,7 @@ var/log   # relative path - begins with current working directory
 ```
 
 
-## cat
+## Cat
 Concatenate files and print on standard input
 
 ```bash
@@ -107,7 +107,7 @@ cat [file1] [file2] [file3] ...
 tac [file1] [file2] [file3] ...
 ```
 
-## tail
+## Tail
 Display last n lines
 ```bash
 # usage
@@ -115,7 +115,7 @@ tail -n 5 [file]    # display last 5 lines of file
 ```
 
 
-## head
+## Head
 Display first n lines
 
 ```bash
@@ -127,13 +127,13 @@ head -n 3 [file]   # display first 3 lines of file
 # Manipulating files and directories
 
 
-## touch
+## Touch
 Create new empty file
 ```bash
 touch [filename]
 ```
 
-## mkdir
+## Mkdir
 Create new empty folder
 ```bash
 mkdir [directory]
@@ -141,7 +141,7 @@ mkdir [dir2] [dir2] [dir3]
 ```
 
 
-## cp
+## Cp
 Copy files
 
 ```bash
@@ -154,7 +154,7 @@ cp -u [input] [output]  # copy only files that do not exist or are newer
 ```
 
 
-## mv
+## Mv
 Move or rename files
 
 ```bash
@@ -170,7 +170,7 @@ mv ~/Documents/file123 ~/Documents/file
 \pagebreak
 
 
-## rm
+## Rm
 Remove files or folders
 
 **THIS IS DANGEROUS COMMAND, BE CAREFUL!**
@@ -277,7 +277,7 @@ tar z[xvf/cvf] file.tar.gz      # extract tar.gz
 
 
 
-## chmod
+## Chmod
 Change permissions of file or folder
 
 ```bash
@@ -358,7 +358,7 @@ For complicated string manipulations use Python or Perl.
 [cmd] | awk [awk_cmd]  # or
 awk [awk_cmd] [file]
 
-awk '{print $1}'          # print only the first field of each line from file
+awk '{print $1}'               # print only the first field of each line from file
 awk '/[expr]/ {print $1}'      # print first field of lines containing [expr]
 awk '/^[expr]/ {print $1}'     # match beggining of the field with expr
 ps aux | awk 'length($0) > 40' # displays lines from ps aux longer than 40 chars
@@ -371,9 +371,11 @@ aux -F: '{print $1}' /etc/passwd | sort # display sorted list of login user name
 Takes an input stream, change it according to the expression and prints results to standard input
 ```bash
 sed 's/[exp]/[text]'   # substitute expression with text
+sed '/[exp]/d'           # deletes line that matches regular expression exp
+
+# Examples
 sed 's/:/%/g'          # substitute [:] with [%] globally
 sed 2,4d               # delete 2nd to 4th line
-sed '/exp/d'           # deletes line that matches regular expression exp
 ```
 
 \pagebreak
@@ -409,14 +411,14 @@ echo folder_{A..Z}
 
 ## Quotes
 
-### Double quotes `(")`
+### A) Double quotes `(")`
 All special characters lose their meaning, exceptions: `$, \, '`
 
 ```bash
 echo "$(hostname) computer uptime: $(uptime)"
 ```
 
-### Single quotes `(')`
+### B) Single quotes `(')`
 Supress all expansions
 
 ```bash
@@ -426,34 +428,29 @@ echo '$(hostname) computer uptime: $(uptime)'
 
 
 
-## Simple shell script
-Shell scripts are meant to be small. When complicated string manipulation is needed use
-scripting language such as Python or Perl
+## Shell script
+Shell scripts are meant to be small, aimed at manipulating files and executing
+simple commands. When complicated string manipulation is needed use high level
+scripting language such as Python or Perl.
 
-```bash
-#!/bin/bash
-echo "Hello from bash"
-python3 hello_world.py
-echo "End of script"
-```
 
 
 # Tips & Tricks
 
-1. Subshell
+**1. Subshell**
 
 ```bash
 (cd [path] && [cmd]) # execute this and jump to current working directory
 ```
 
-2. Bang Bang
+**2. Bang Bang**
 
 ```bash
 !!      # execute previous command
 sudo !! # execute previous command with sudo priviliges
 ```
 
-3. Quick copy
+**3. Quick copy**
 
 Share files to another computer on localhost
 
@@ -464,7 +461,7 @@ python -m SimpleHTTPServer
 
 
 
-
+<!---
 # Tasks:
 
 
@@ -491,3 +488,4 @@ versions in the destination directory.
 ```bash
 cp -u *.html destination
 ```
+--->
