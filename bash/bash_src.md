@@ -21,7 +21,6 @@ man [command]
 
 man man
 man ls
-man firefox
 ```
 
 ## Ls
@@ -270,20 +269,20 @@ tar cvf archive.tar file1 file2 # create archive
 tar xvf archive.tar             # unpack tar
 gzip [file]                     # compress
 gunzip [file]                   # uncompress file.gz
-tar z[xvf/cvf] file.tar.gz      # extract tar.gz
+# one liner
+tar z[xvf/cvf] file.tar.gz      # zxvf -> extract; zcvf -> create tar.gz
+
+zip [name.zip] file1 file2      # zip file1 file2 into name.zip
+unzip [name.zip]                # unzip name.zip
+zip -r [name.zip] dir1 dir2     # zip directories
 ```
 
 
 
-
+\pagebreak
 
 ## Chmod
 Change permissions of file or folder
-
-```bash
-chmod [permissions] [file]
-```
-
 
 
 ### A) Octal representation (base 8)
@@ -330,6 +329,7 @@ chmod u-x build_script.sh  # Remove execute permissions from owner
 
 **Use what works for you**
 
+\pagebreak
 
 ## Scp
 
@@ -362,7 +362,7 @@ awk '{print $1}'               # print only the first field of each line from fi
 awk '/[expr]/ {print $1}'      # print first field of lines containing [expr]
 awk '/^[expr]/ {print $1}'     # match beggining of the field with expr
 ps aux | awk 'length($0) > 40' # displays lines from ps aux longer than 40 chars
-aux -F: '{print $1}' /etc/passwd | sort # display sorted list of login user names
+awk -F: '{print $1}' /etc/passwd | sort # display sorted list of login user names
 
 -F: # change field separator to : (default is space)
 ```
