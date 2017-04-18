@@ -456,7 +456,8 @@ Share files to another computer on localhost
 
 ```bash
 # start basic web server on port 8000 from current working directory
-python -m SimpleHTTPServer
+python -m SimpleHTTPServer  # python2
+python3 -m http.server      # python3
 ```
 
 
