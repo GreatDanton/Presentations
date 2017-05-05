@@ -305,7 +305,8 @@ chmod [owner group other] [file]
 # Examples
 chmod 777 build_script.sh
 chmod 755 build_script.sh
-chmod 000 build_script.sh
+
+chmod -R 000 /some/directory   # change permissions recursively
 ```
 
 
